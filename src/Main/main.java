@@ -2,7 +2,7 @@ package Main;
 
 import javax.swing.*;
 
-public class Main {
+public class main {
     static void main() {
         //Type of star
         int star = 0;
