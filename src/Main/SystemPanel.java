@@ -179,18 +179,24 @@ public class SystemPanel extends JPanel implements Runnable {
                             applyGravity(star, pl3);
                             pl3.update();
                         }
+                        double dx = star.x - pl1.x;
+                        double dy = star.y - pl1.y;
+                        double distance = Math.sqrt(dx * dx + dy * dy);
+                        if (distance < star.radius + pl1.radius) {
+                            exploded = true;
+                        }
                     } else if (SimulationMode == 1) {
+                        double dx = pl1.x - pl2.x;
+                        double dy = pl1.y - pl2.y;
+                        double distance = Math.sqrt(dx * dx + dy * dy);
+                        if (distance < pl2.radius + pl1.radius) {
+                            exploded = true;
+                        }
                         applyGravity(pl1, pl2);
+                        pl1.update();
+                        pl2.update();
                     }
-                    double dx = star.x - pl1.x;
-                    double dy = star.y - pl1.y;
-                    double distance = Math.sqrt(dx * dx + dy * dy);
-                    if (distance < star.radius + pl1.radius) {
-                        exploded = true;
-                    }
-                    applyGravity(star, pl1);
-                    star.update();
-                    pl1.update();
+
                 }
                 //Objekt position is updating
 
